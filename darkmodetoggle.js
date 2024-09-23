@@ -79,20 +79,20 @@ function colorModeToggle() {
     }
   }
 
-  function checkPreference(e) {
-    goDark(e.matches, false);
-  }
-  const colorPreference = window.matchMedia("(prefers-color-scheme: dark)");
-  colorPreference.addEventListener("change", (e) => {
-    checkPreference(e);
-  });
+//  function checkPreference(e) {
+//    goDark(e.matches, false);
+//  }
+//  const colorPreference = window.matchMedia("(prefers-color-scheme: dark)");
+//  colorPreference.addEventListener("change", (e) => {
+//    checkPreference(e);
+//  });
 
-  let storagePreference = localStorage.getItem("dark-mode");
-  if (storagePreference !== null) {
-    storagePreference === "true" ? goDark(true, false) : goDark(false, false);
-  } else {
-    checkPreference(colorPreference);
-  }
+//  let storagePreference = localStorage.getItem("dark-mode");
+//  if (storagePreference !== null) {
+//    storagePreference === "true" ? goDark(true, false) : goDark(false, false);
+//  } else {
+//    checkPreference(colorPreference);
+//  }
 
   window.addEventListener("DOMContentLoaded", (event) => {
     toggleEl = document.querySelectorAll("[tr-color-toggle]");
