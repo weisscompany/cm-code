@@ -1,4 +1,6 @@
-function colorModeToggle() {
+if(window.innerWidth >= 991){
+  
+  function colorModeToggle() {
   function attr(defaultVal, attrVal) {
     const defaultValType = typeof defaultVal;
     if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
@@ -110,3 +112,4 @@ function colorModeToggle() {
   });
 }
 colorModeToggle();
+}
