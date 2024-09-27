@@ -113,3 +113,5 @@ if(window.innerWidth >= 991){
 }
 colorModeToggle();
 }
+else{ break
+}
