@@ -14,9 +14,9 @@ function colorModeToggle() {
   let toggleEl;
   let togglePressed = "false";
 
-  const scriptTag = document.querySelector("[tr-color-vars]");
+  const scriptTag = document.querySelector("[darkmodetoggle-color-vars]");
   if (!scriptTag) {
-    console.warn("Script tag with tr-color-vars attribute not found");
+    console.warn("Script tag with darkmodetoggle-color-vars attribute not found");
     return;
   }
 
