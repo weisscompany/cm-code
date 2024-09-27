@@ -80,7 +80,7 @@ function colorModeToggle() {
   }
 
   // Check if the device is mobile or tablet (screen width below 1024px)
-  const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+  const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
   if (isMobile) {
     // If on mobile/tablet, force light mode and disable the toggle
@@ -89,10 +89,13 @@ function colorModeToggle() {
     return; // Do not attach the toggle functionality on mobile
   }
 
-  let storagePreference = localStorage.getItem("dark-mode");
+  // Check if the device is mobile or tablet (screen width below 1024px)
+  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+  
+  if (isDesktop) { let storagePreference = localStorage.getItem("dark-mode");
   if (storagePreference !== null) {
     storagePreference === "true" ? goDark(true, false) : goDark(false, false);
-  }
+  }}
 
   window.addEventListener("load", (event) => {
     toggleEl = document.querySelectorAll("[tr-color-toggle]");
