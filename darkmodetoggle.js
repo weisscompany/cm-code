@@ -102,14 +102,16 @@ function colorModeToggle() {
       element.setAttribute("aria-pressed", togglePressed);
     });
     toggleEl.forEach(function (element) {
-  element.addEventListener("click", toggleDarkMode);
-  element.addEventListener("touchstart", toggleDarkMode);
-});
-
-function toggleDarkMode() {
-  let darkClass = htmlElement.classList.contains("dark-mode");
-  darkClass ? goDark(false, true) : goDark(true, true);
-});
+      element.addEventListener("click", function () {
+        let darkClass = htmlElement.classList.contains("dark-mode");
+        darkClass ? goDark(false, true) : goDark(true, true);
+      });
+    });
+    toggleEl.forEach(function (element) {
+      element.addEventListener("touchstart", function () {
+        let darkClass = htmlElement.classList.contains("dark-mode");
+        darkClass ? goDark(false, true) : goDark(true, true);
+      });
     });
   });
 }
