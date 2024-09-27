@@ -80,22 +80,23 @@ function colorModeToggle() {
   }
 
   // Check if the device is mobile or tablet (screen width below 1024px)
-  const isMobile = window.matchMedia("(max-width: 1023px)").matches;
+  const isMobile = window.matchMedia("(max-width: 1024px)").matches;
 
   if (isMobile) {
     // If on mobile/tablet, force light mode and disable the toggle
     goDark(false, false); // Force light mode
     console.log("Light mode is enforced on mobile devices.");
-    return; // Do not attach the toggle functionality on mobile
+    // Hide the dark mode toggle button on mobile devices
+    document.querySelectorAll("[tr-color-toggle]").forEach(function (element) {
+      element.style.display = "none"; // Hide the toggle button on mobile
+    });
+    return; // Exit the function and disable dark mode functionality on mobile
   }
 
-  // Check if the device is mobile or tablet (screen width below 1024px)
-  const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-  
-  if (isDesktop) { let storagePreference = localStorage.getItem("dark-mode");
+  let storagePreference = localStorage.getItem("dark-mode");
   if (storagePreference !== null) {
     storagePreference === "true" ? goDark(true, false) : goDark(false, false);
-  }}
+  }
 
   window.addEventListener("load", (event) => {
     toggleEl = document.querySelectorAll("[tr-color-toggle]");
