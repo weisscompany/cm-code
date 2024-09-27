@@ -87,12 +87,12 @@ function colorModeToggle() {
 //    checkPreference(e);
 //  });
 
-//  let storagePreference = localStorage.getItem("dark-mode");
-//  if (storagePreference !== null) {
-//    storagePreference === "true" ? goDark(true, false) : goDark(false, false);
-//  } else {
-//    checkPreference(colorPreference);
-//  }
+  let storagePreference = localStorage.getItem("dark-mode");
+  if (storagePreference !== null) {
+    storagePreference === "true" ? goDark(true, false) : goDark(false, false);
+  } else {
+    checkPreference(colorPreference);
+  }
 
   window.addEventListener("DOMContentLoaded", (event) => {
     toggleEl = document.querySelectorAll("[tr-color-toggle]");
