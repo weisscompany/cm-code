@@ -23,9 +23,9 @@ function colorModeToggle() {
   let colorModeDuration = attr(0.5, scriptTag.getAttribute("duration"));
   let colorModeEase = attr("power1.out", scriptTag.getAttribute("ease"));
 
-  const cssVariables = scriptTag.getAttribute("tr-color-vars");
+  const cssVariables = scriptTag.getAttribute("darkmodetoggle-color-vars");
   if (!cssVariables.length) {
-    console.warn("Value of tr-color-vars attribute not found");
+    console.warn("Value of darkmodetoggle-color-vars attribute not found");
     return;
   }
 
@@ -42,7 +42,7 @@ function colorModeToggle() {
   });
 
   if (!Object.keys(lightColors).length) {
-    console.warn("No variables found matching tr-color-vars attribute value");
+    console.warn("No variables found matching darkmodetoggle-color-vars attribute value");
     return;
   }
 
