@@ -95,7 +95,7 @@ function colorModeToggle() {
   }
 
   window.addEventListener("DOMContentLoaded", (event) => {
-    toggleEl = document.querySelectorAll("[tr-color-toggle]");
+    toggleEl = document.querySelectorAll("[darkmode-toggle]");
     toggleEl.forEach(function (element) {
       element.setAttribute("aria-label", "View Dark Mode");
       element.setAttribute("role", "button");
