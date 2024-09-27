@@ -94,7 +94,7 @@ function colorModeToggle() {
 //    checkPreference(colorPreference);
 //  }
 
-  window.addEventListener("DOMContentLoaded", (event) => {
+  window.addEventListener("load", (event) => {
     toggleEl = document.querySelectorAll("[theme-toggle]");
     toggleEl.forEach(function (element) {
       element.setAttribute("aria-label", "View Dark Mode");
