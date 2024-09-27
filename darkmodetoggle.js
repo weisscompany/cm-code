@@ -1,6 +1,4 @@
-if(window.innerWidth >= 991){
-  
-  function colorModeToggle() {
+function colorModeToggle() {
   function attr(defaultVal, attrVal) {
     const defaultValType = typeof defaultVal;
     if (typeof attrVal !== "string" || attrVal.trim() === "") return defaultVal;
@@ -81,19 +79,19 @@ if(window.innerWidth >= 991){
     }
   }
 
-//  function checkPreference(e) {
-//    goDark(e.matches, false);
-//  }
-//  const colorPreference = window.matchMedia("(prefers-color-scheme: dark)");
-//  colorPreference.addEventListener("change", (e) => {
-//    checkPreference(e);
-//  });
+  // Check if the device is mobile or tablet (screen width below 1024px)
+  const isMobile = window.matchMedia("(max-width: 1024px)").matches;
+
+  if (isMobile) {
+    // If on mobile/tablet, force light mode and disable the toggle
+    goDark(false, false); // Force light mode
+    console.log("Light mode is enforced on mobile devices.");
+    return; // Do not attach the toggle functionality on mobile
+  }
 
   let storagePreference = localStorage.getItem("dark-mode");
   if (storagePreference !== null) {
     storagePreference === "true" ? goDark(true, false) : goDark(false, false);
-  } else {
-    checkPreference(colorPreference);
   }
 
   window.addEventListener("load", (event) => {
@@ -111,7 +109,5 @@ if(window.innerWidth >= 991){
     });
   });
 }
+
 colorModeToggle();
-}
-else{ break
-}
