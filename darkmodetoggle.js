@@ -14,18 +14,18 @@ function colorModeToggle() {
   let toggleEl;
   let togglePressed = "false";
 
-  const scriptTag = document.querySelector("[darkmodetoggle-color-vars]");
+  const scriptTag = document.querySelector("[theme-color-vars]");
   if (!scriptTag) {
-    console.warn("Script tag with darkmodetoggle-color-vars attribute not found");
+    console.warn("Script tag with theme-color-vars attribute not found");
     return;
   }
 
   let colorModeDuration = attr(0.5, scriptTag.getAttribute("duration"));
   let colorModeEase = attr("power1.out", scriptTag.getAttribute("ease"));
 
-  const cssVariables = scriptTag.getAttribute("darkmodetoggle-color-vars");
+  const cssVariables = scriptTag.getAttribute("theme-color-vars");
   if (!cssVariables.length) {
-    console.warn("Value of darkmodetoggle-color-vars attribute not found");
+    console.warn("Value of theme-color-vars attribute not found");
     return;
   }
 
@@ -42,7 +42,7 @@ function colorModeToggle() {
   });
 
   if (!Object.keys(lightColors).length) {
-    console.warn("No variables found matching darkmodetoggle-color-vars attribute value");
+    console.warn("No variables found matching theme-color-vars attribute value");
     return;
   }
 
@@ -87,15 +87,15 @@ function colorModeToggle() {
 //    checkPreference(e);
 //  });
 
-  let storagePreference = localStorage.getItem("dark-mode");
-  if (storagePreference !== null) {
-    storagePreference === "true" ? goDark(true, false) : goDark(false, false);
-  } else {
-    checkPreference(colorPreference);
-  }
+//  let storagePreference = localStorage.getItem("dark-mode");
+//  if (storagePreference !== null) {
+//    storagePreference === "true" ? goDark(true, false) : goDark(false, false);
+//  } else {
+//    checkPreference(colorPreference);
+//  }
 
   window.addEventListener("DOMContentLoaded", (event) => {
-    toggleEl = document.querySelectorAll("[darkmode-toggle]");
+    toggleEl = document.querySelectorAll("[theme-toggle]");
     toggleEl.forEach(function (element) {
       element.setAttribute("aria-label", "View Dark Mode");
       element.setAttribute("role", "button");
